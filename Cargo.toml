@@ -1,0 +1,23 @@
+[package]
+name         = "release-train-dogfood"
+version      = "0.1.0"
+edition      = "2024"
+rust-version = "1.89"
+license      = "MIT OR Apache-2.0"
+description  = "End-to-end dogfood harness driving the synchronizer release-train library against the real six-crate language-family stack."
+publish      = false
+
+[lib]
+name = "release_train_dogfood"
+path = "src/lib.rs"
+
+[[bin]]
+name = "release-train-dogfood"
+path = "src/main.rs"
+
+[dependencies]
+synchronizer = { git = "https://github.com/LiGoldragon/synchronizer.git", rev = "dfae1fda238b0676d252c5551ef620c80607e724" }
+thiserror    = "2"
+
+[lints.rust]
+unsafe_code = "forbid"

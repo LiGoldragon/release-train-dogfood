@@ -1,0 +1,112 @@
+== STAGE a: intent decoded (typed) ==
+intent file: /home/li/primary/release-trains/language-family-slice-three.nota
+train name:  language-family-slice-three
+candidate branch: train/language-family-slice-three
+  content-identity         selector=Mainline             expected_base=6cc0408cdb96f174cc8fdf6ca23420038de28450
+  name-table               selector=Mainline             expected_base=c3237f77c087e6feab49d6cf34971cebc14a11e6
+  raw-discovery            selector=Mainline             expected_base=a4e8c6df84e6a487ca6fe2f3641f9bafd0b0d8c8
+  structural-codec         selector=Mainline             expected_base=104f92454a5ba88b376fa706a9fe38c4a4b65ee0
+  core-schema              selector=Mainline             expected_base=33e5be2769b87920b773c7707c1ceb2c97cd42e8
+  structural-codec-derive  selector=Mainline             expected_base=348bd89fafefbc13c87b9c5315f7349de38250c6
+immutable externals declared: 0
+
+== cloning components (object stores + push origins) ==
+  cloned content-identity
+  cloned name-table
+  cloned raw-discovery
+  cloned structural-codec
+  cloned core-schema
+  cloned structural-codec-derive
+
+== STAGE b: ReleaseTrainRun::execute() against real remotes ==
+candidate branch materialized: train/language-family-slice-three
+resolved selectors (pushed train/<name> tips):
+  content-identity         selected=6cc0408cdb96f174cc8fdf6ca23420038de28450 candidate(train tip)=3f705566f36d171d9fa98167ba2b71f6e9a9f93d
+  name-table               selected=c3237f77c087e6feab49d6cf34971cebc14a11e6 candidate(train tip)=1c1d6ff6f5824402dcef3b1005b14465b4e90cdb
+  raw-discovery            selected=a4e8c6df84e6a487ca6fe2f3641f9bafd0b0d8c8 candidate(train tip)=b6cc1c8d80a8b4812ddf29317d3f50e04d5fc838
+  structural-codec         selected=104f92454a5ba88b376fa706a9fe38c4a4b65ee0 candidate(train tip)=3a1d56770502ffe7f3745187c118fc79db1a4f9a
+  core-schema              selected=33e5be2769b87920b773c7707c1ceb2c97cd42e8 candidate(train tip)=361c19fb43d87ec4945b726f64fe7bd932a0fcc6
+  structural-codec-derive  selected=348bd89fafefbc13c87b9c5315f7349de38250c6 candidate(train tip)=e77619494e7dd4c14d570ed002c83a6d88b4b9f0
+
+cascade report (has_failures=true):
+(1784147898 1784147923 [(0 [(content-identity AlreadyAligned NotAttempted) (raw-discovery AlreadyAligned NotAttempted)]) (1 [(name-table AlreadyAligned NotAttempted)]) (2 [(structural-codec AlreadyAligned NotAttempted)]) (3 [(core-schema AlreadyAligned NotAttempted)]) (4 [(structural-codec-derive AlreadyAligned NotAttempted)])] [(synchronizer RoleResolution [|builder role BuilderRole("NixBuilder") unresolved: cluster proposal unreadable: No such file or directory (os error 2)|])])
+
+== STAGE c: real dependency discovery (DependencyGraph::discover) ==
+discovered internal components: 6
+  internal: content-identity
+  internal: core-schema
+  internal: name-table
+  internal: raw-discovery
+  internal: structural-codec
+  internal: structural-codec-derive
+discovered dependency edges (consumer -> producer @ layer):
+  name-table -> content-identity [CargoManifest / CargoPackage(DependencyName("content-identity"))]
+  name-table -> content-identity [CargoLock / CargoPackage(DependencyName("content-identity"))]
+  structural-codec -> content-identity [CargoManifest / CargoPackage(DependencyName("content-identity"))]
+  structural-codec -> name-table [CargoManifest / CargoPackage(DependencyName("name-table"))]
+  structural-codec -> raw-discovery [CargoManifest / CargoPackage(DependencyName("raw-discovery"))]
+  structural-codec -> content-identity [CargoLock / CargoPackage(DependencyName("content-identity"))]
+  structural-codec -> name-table [CargoLock / CargoPackage(DependencyName("name-table"))]
+  structural-codec -> raw-discovery [CargoLock / CargoPackage(DependencyName("raw-discovery"))]
+  core-schema -> content-identity [CargoManifest / CargoPackage(DependencyName("content-identity"))]
+  core-schema -> name-table [CargoManifest / CargoPackage(DependencyName("name-table"))]
+  core-schema -> raw-discovery [CargoManifest / CargoPackage(DependencyName("raw-discovery"))]
+  core-schema -> structural-codec [CargoManifest / CargoPackage(DependencyName("structural-codec"))]
+  core-schema -> content-identity [CargoLock / CargoPackage(DependencyName("content-identity"))]
+  core-schema -> name-table [CargoLock / CargoPackage(DependencyName("name-table"))]
+  core-schema -> raw-discovery [CargoLock / CargoPackage(DependencyName("raw-discovery"))]
+  core-schema -> structural-codec [CargoLock / CargoPackage(DependencyName("structural-codec"))]
+  structural-codec-derive -> content-identity [CargoLock / CargoPackage(DependencyName("content-identity"))]
+  structural-codec-derive -> core-schema [CargoLock / CargoPackage(DependencyName("core-schema"))]
+  structural-codec-derive -> name-table [CargoLock / CargoPackage(DependencyName("name-table"))]
+  structural-codec-derive -> raw-discovery [CargoLock / CargoPackage(DependencyName("raw-discovery"))]
+  structural-codec-derive -> structural-codec [CargoLock / CargoPackage(DependencyName("structural-codec"))]
+  ascent level 0: content-identity, raw-discovery
+  ascent level 1: name-table
+  ascent level 2: structural-codec
+  ascent level 3: core-schema
+  ascent level 4: structural-codec-derive
+
+== STAGE d: real attestations (narHash) + per-component lock identities ==
+  content-identity         candidate=3f705566f36d171d9fa98167ba2b71f6e9a9f93d narHash=sha256-5BaO8NGgkaEDKdV8tJ/62e9WJNYN8KwpxHlB/AilTSY=
+  name-table               candidate=1c1d6ff6f5824402dcef3b1005b14465b4e90cdb narHash=sha256-iVjecRxiy3/Ol0Ct+hshELRWXwwiaU6zR4OTQL29IHk=
+  raw-discovery            candidate=b6cc1c8d80a8b4812ddf29317d3f50e04d5fc838 narHash=sha256-7gtw0HSLYbir4VANNda7zL3HrQ3vILbUFguFStu3Chk=
+  structural-codec         candidate=3a1d56770502ffe7f3745187c118fc79db1a4f9a narHash=sha256-OkRUkvHk7GqH+LFD+YnJFCcRChj6KiSxL4hkSFBwvUo=
+  core-schema              candidate=361c19fb43d87ec4945b726f64fe7bd932a0fcc6 narHash=sha256-+TrUWxBfLCdQWoThfyqE7N8DUruqSjk2eCP3kw43NNw=
+  structural-codec-derive  candidate=e77619494e7dd4c14d570ed002c83a6d88b4b9f0 narHash=sha256-irc3WbPmTHUfun0J6z4wAvGiJLbiKuQCl6Iy06eH3V0=
+
+== STAGE e: resolve_closure -> ResolvedReleaseTrain ==
+closure identity: 42df158c9708d7f06c980a9431a51c4952d92560d9bfa9ce27de45b9288e6cea
+candidate branch: train/language-family-slice-three
+  resolved component: ResolvedComponent { component: ComponentName("content-identity"), selected_commit: CommitIdentifier("6cc0408cdb96f174cc8fdf6ca23420038de28450"), candidate_commit: CommitIdentifier("3f705566f36d171d9fa98167ba2b71f6e9a9f93d") }
+  resolved component: ResolvedComponent { component: ComponentName("core-schema"), selected_commit: CommitIdentifier("33e5be2769b87920b773c7707c1ceb2c97cd42e8"), candidate_commit: CommitIdentifier("361c19fb43d87ec4945b726f64fe7bd932a0fcc6") }
+  resolved component: ResolvedComponent { component: ComponentName("name-table"), selected_commit: CommitIdentifier("c3237f77c087e6feab49d6cf34971cebc14a11e6"), candidate_commit: CommitIdentifier("1c1d6ff6f5824402dcef3b1005b14465b4e90cdb") }
+  resolved component: ResolvedComponent { component: ComponentName("raw-discovery"), selected_commit: CommitIdentifier("a4e8c6df84e6a487ca6fe2f3641f9bafd0b0d8c8"), candidate_commit: CommitIdentifier("b6cc1c8d80a8b4812ddf29317d3f50e04d5fc838") }
+  resolved component: ResolvedComponent { component: ComponentName("structural-codec"), selected_commit: CommitIdentifier("104f92454a5ba88b376fa706a9fe38c4a4b65ee0"), candidate_commit: CommitIdentifier("3a1d56770502ffe7f3745187c118fc79db1a4f9a") }
+  resolved component: ResolvedComponent { component: ComponentName("structural-codec-derive"), selected_commit: CommitIdentifier("348bd89fafefbc13c87b9c5315f7349de38250c6"), candidate_commit: CommitIdentifier("e77619494e7dd4c14d570ed002c83a6d88b4b9f0") }
+
+== STAGE f: write_integration_artifacts ==
+release-train.lock.json: /home/li/primary/repos/release-train-dogfood/integration/release-train.lock.json
+integration flake.nix:   /home/li/primary/repos/release-train-dogfood/integration/flake.nix
+
+-- release-train.lock.json --
+{"name":"language-family-slice-three","candidate_branch":"train/language-family-slice-three","components":[{"component":"content-identity","selected_commit":"6cc0408cdb96f174cc8fdf6ca23420038de28450","candidate_commit":"3f705566f36d171d9fa98167ba2b71f6e9a9f93d"},{"component":"core-schema","selected_commit":"33e5be2769b87920b773c7707c1ceb2c97cd42e8","candidate_commit":"361c19fb43d87ec4945b726f64fe7bd932a0fcc6"},{"component":"name-table","selected_commit":"c3237f77c087e6feab49d6cf34971cebc14a11e6","candidate_commit":"1c1d6ff6f5824402dcef3b1005b14465b4e90cdb"},{"component":"raw-discovery","selected_commit":"a4e8c6df84e6a487ca6fe2f3641f9bafd0b0d8c8","candidate_commit":"b6cc1c8d80a8b4812ddf29317d3f50e04d5fc838"},{"component":"structural-codec","selected_commit":"104f92454a5ba88b376fa706a9fe38c4a4b65ee0","candidate_commit":"3a1d56770502ffe7f3745187c118fc79db1a4f9a"},{"component":"structural-codec-derive","selected_commit":"348bd89fafefbc13c87b9c5315f7349de38250c6","candidate_commit":"e77619494e7dd4c14d570ed002c83a6d88b4b9f0"}],"attestations":[{"component":"content-identity","commit":"3f705566f36d171d9fa98167ba2b71f6e9a9f93d","nar_hash":"sha256-5BaO8NGgkaEDKdV8tJ/62e9WJNYN8KwpxHlB/AilTSY="},{"component":"core-schema","commit":"361c19fb43d87ec4945b726f64fe7bd932a0fcc6","nar_hash":"sha256-+TrUWxBfLCdQWoThfyqE7N8DUruqSjk2eCP3kw43NNw="},{"component":"name-table","commit":"1c1d6ff6f5824402dcef3b1005b14465b4e90cdb","nar_hash":"sha256-iVjecRxiy3/Ol0Ct+hshELRWXwwiaU6zR4OTQL29IHk="},{"component":"raw-discovery","commit":"b6cc1c8d80a8b4812ddf29317d3f50e04d5fc838","nar_hash":"sha256-7gtw0HSLYbir4VANNda7zL3HrQ3vILbUFguFStu3Chk="},{"component":"structural-codec","commit":"3a1d56770502ffe7f3745187c118fc79db1a4f9a","nar_hash":"sha256-OkRUkvHk7GqH+LFD+YnJFCcRChj6KiSxL4hkSFBwvUo="},{"component":"structural-codec-derive","commit":"e77619494e7dd4c14d570ed002c83a6d88b4b9f0","nar_hash":"sha256-irc3WbPmTHUfun0J6z4wAvGiJLbiKuQCl6Iy06eH3V0="}],"locks":[{"component":"content-identity","cargo_lock_blake3":"97bfad66771c92e1b4071d2a8b5c7d2d2274d31d9eaf4146e34febbe1a11e629","flake_lock_blake3":"d97c307f136710f965c57a373933279b102cbf54c8bbaaca5601bab96caf2724"},{"component":"core-schema","cargo_lock_blake3":"7749092dafe1cc45a6cd6e9bd90d7ae875e87ab01e4d8b4633728ae911dca083","flake_lock_blake3":"d97c307f136710f965c57a373933279b102cbf54c8bbaaca5601bab96caf2724"},{"component":"name-table","cargo_lock_blake3":"c77eaf78e2b3fd1a3a2f21f9f9117b178e1c062d5dc4eda758324a88e203ca21","flake_lock_blake3":"d97c307f136710f965c57a373933279b102cbf54c8bbaaca5601bab96caf2724"},{"component":"raw-discovery","cargo_lock_blake3":"895fb48134cfb5d6fd0c6aa5b4c388a77b566c14fd693a0c7f3c9e1b361f870e","flake_lock_blake3":"d97c307f136710f965c57a373933279b102cbf54c8bbaaca5601bab96caf2724"},{"component":"structural-codec","cargo_lock_blake3":"0dd0d41b6f3ac5f64b8327ca9696a957b6627830066c520f58f9e41e7283b8c8","flake_lock_blake3":"d97c307f136710f965c57a373933279b102cbf54c8bbaaca5601bab96caf2724"},{"component":"structural-codec-derive","cargo_lock_blake3":"85f79963b441713fb555b7cd8abe9c207043205e76233c6aa5c3e52082867eac","flake_lock_blake3":"5ce8915f113011f9e0467b7948915cd277ca5dfb60825be0bee175a84cf11996"}],"vendor_snapshot":null,"identity":"42df158c9708d7f06c980a9431a51c4952d92560d9bfa9ce27de45b9288e6cea"}
+
+-- integration flake.nix --
+{
+  description = "release train language-family-slice-three (42df158c9708d7f06c980a9431a51c4952d92560d9bfa9ce27de45b9288e6cea)";
+  inputs = {
+    content_identity = { url = "github:LiGoldragon/content-identity/3f705566f36d171d9fa98167ba2b71f6e9a9f93d"; narHash = "sha256-5BaO8NGgkaEDKdV8tJ/62e9WJNYN8KwpxHlB/AilTSY="; };
+    core_schema = { url = "github:LiGoldragon/core-schema/361c19fb43d87ec4945b726f64fe7bd932a0fcc6"; narHash = "sha256-+TrUWxBfLCdQWoThfyqE7N8DUruqSjk2eCP3kw43NNw="; };
+    name_table = { url = "github:LiGoldragon/name-table/1c1d6ff6f5824402dcef3b1005b14465b4e90cdb"; narHash = "sha256-iVjecRxiy3/Ol0Ct+hshELRWXwwiaU6zR4OTQL29IHk="; };
+    raw_discovery = { url = "github:LiGoldragon/raw-discovery/b6cc1c8d80a8b4812ddf29317d3f50e04d5fc838"; narHash = "sha256-7gtw0HSLYbir4VANNda7zL3HrQ3vILbUFguFStu3Chk="; };
+    structural_codec = { url = "github:LiGoldragon/structural-codec/3a1d56770502ffe7f3745187c118fc79db1a4f9a"; narHash = "sha256-OkRUkvHk7GqH+LFD+YnJFCcRChj6KiSxL4hkSFBwvUo="; };
+    structural_codec_derive = { url = "github:LiGoldragon/structural-codec-derive/e77619494e7dd4c14d570ed002c83a6d88b4b9f0"; narHash = "sha256-irc3WbPmTHUfun0J6z4wAvGiJLbiKuQCl6Iy06eH3V0="; };
+  };
+  outputs = inputs: {
+    releaseTrain = builtins.fromJSON (builtins.readFile ./release-train.lock.json);
+  };
+}
+
+
+== dogfood library chain complete (stages a-f) ==
